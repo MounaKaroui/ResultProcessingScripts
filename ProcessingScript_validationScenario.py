@@ -194,18 +194,15 @@ def setPlotSettings(ax,xlabel,ylabel):
     plt.show
 
 
-# ###  Decider Test 
-
-# In[1613]:
+# ###  Example: 
 
 
-resPath=str(Path.home())+'/myGitDepot'+'/HeteroSIM/HeteroSIM/simulations/examples/results/' ## TODO add search for path
+resPath=str(Path.home())+'yourPathTo_Result Database' 
 configName='deciderTestThroughput'
 pathToResult=resPath+configName+'-0.vec'
 #delay0,delay1=getDelay(pathToResult,".car[20].collectStatistics")
 bw0,bw1=getAvailableBandwidth(pathToResult,".car[20].collectStatistics")
 decision=getDecisionFromVec(pathToResult, ".car[20].decisionMaker")
-
 
 # In[1614]:
 
@@ -225,5 +222,6 @@ setPlotSettings(ax1,"Simulation time (s)","Available bandwidth (Mbps)")
 ax2.plot(decision['time'],decision['decision'],label="Decision with TOPSIS",color='g')
 setPlotSettings(ax2,"Simulation time (s) ","Decision")
 plt.subplots_adjust(hspace=0.6)
-plt.savefig("ABW_TOPSIS_EMA_WithPermanentControlTraffic.pdf")
+
+
 
